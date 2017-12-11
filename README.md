@@ -32,3 +32,8 @@ designs
    ```
 
 ### This project is hosted [Here](https://james-chege.github.io/recipes/designs/UI/)
+
+### The following are `wireframes` for all templates used:
+
+* *homepage*
+![homepage.png](https://github.com/james-chege/recipes/blob/master/designs/wireframes/homepage.png)
