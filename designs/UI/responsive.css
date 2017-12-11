@@ -1,10 +1,11 @@
-/*@media screen and (min-width: 720px) {
+@media screen and (min-width: 720px) {
   .content-wrapper {
-    width: 100%;
+    width: 95%;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .aside {
     text-align: center;
-  }*/
+  }
+}
