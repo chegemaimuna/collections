@@ -32,9 +32,10 @@
 	</header>
 
 <body>
-<main>
+<div id="load">
+<main id="contents">
 	<!-- About -->
-	<section class="section" id="about">
+	<section id="about">
       <div class="content-wrapper">
 
         <h3 id="about-me">Futuristic Recipes</h3>
@@ -59,7 +60,6 @@
 
       </div>
     </section>
-</main>
 
 <footer class="section_alt">
     <div class="content-wrapper">
@@ -72,5 +72,21 @@
       </div>
     </div>
   </footer>
+</main>
+</div>
 </body>
+<script type="text/javascript">
+  document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+       document.getElementById('contents').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('contents').style.visibility="visible";
+      },1000);
+  }
+}
+</script>
 </html>
