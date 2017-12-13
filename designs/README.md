@@ -31,7 +31,8 @@ designs
     │   homepage.bmpr
    ```
 
-### This project is hosted [Here](https://james-chege.github.io/recipes/designs/UI/)
+### This project's UI is hosted [Here](https://james-chege.github.io/recipes/designs/UI/)
+* *Note* : The above hosted project does not have functionality. It is just UI.
 
 ### The following are `wireframes` for all templates used:
 
