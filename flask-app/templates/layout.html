@@ -24,17 +24,17 @@
 
         <div id="top" class="section_top">
 
-        <nav>
-        <ul>
-            <li><a href="#"><img src="/static/logo.png"></a></li>
-            <div id="links">
-                <li id="list-item"><a href="#">Home</a></li>
-                <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
-                <li id="list-item"><a href="{{ url_for('signup')}}"">signup</a></li>
-            </div>
-        </ul>
-        </nav>
-
+            <nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+                    <li id="list-item"><a href="{{ url_for('signup')}}"">signup</a></li>
+                </div>
+            </ul>
+            </nav>
+        </div>
             {% if get_flashed_messages() %}
                 <header>
                     <div class="alert alert-info" role="alert">
@@ -47,8 +47,6 @@
                     
                     {% block main %}{% endblock %}
             </main>
-            
-        </div>
 
     </body>
 
