@@ -1,6 +1,11 @@
 html {
-	background: url(futuristic.jpg);
+	background: url(/static/imgs/futuristic.jpg);
 }
+
+nav ul {
+  display: inline;
+}
+
 h1 {
 	color: white;
 	text-align: center;
@@ -38,3 +43,15 @@ h1 {
 #button:hover {
 	background-color: #29AB87;
 }
+
+.section_top a img {
+  width: 250px;
+  position : left;
+  display: inline-block;
+  margin-top: 15px;
+  height: 30px;
+}
+
+.section_top {
+    background-color: #000;
+  }

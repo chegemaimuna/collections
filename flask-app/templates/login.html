@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
+	
+	{%block styles %}
+	<link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet"/>
+	{% endblock %}
 
-<!-- styling -->
-<link rel="stylesheet" type="text/css" href="login.css">
-<link rel="stylesheet" type="text/css" href="responsive.css">
-<head>
+
 	<!-- title -->
-	<title>Login </title>
-</head>
-<body>
+	{% block title %}
+	Login
+	{% endblock %}
+
+	{%block main %}
 	<h1>Login</h1>
 
 	<!-- signup form -->
@@ -26,5 +25,4 @@
 			<button type="submit" id="button">Submit</button>
 		</div>
 	</form>
-</body>
-</html>
+{% endblock %}

@@ -8,18 +8,13 @@
         <meta charset="utf-8"/>
         <meta content="initial-scale=1, width=device-width" name="viewport"/>
 
-        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato:300|Dawning+of+a+New+Day|Source+Sans+Pro:400,400i,700" rel="stylesheet">
-
-        <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
-        <link href="{{ url_for('static', filename='styles/responsive.css') }}" rel="stylesheet"/>
-        <link href="{{ url_for('static', filename='styles/normalize.css') }}" rel="stylesheet"/>
-
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {%block styles %}
+        
+        {% endblock %}
+        <link href="{{ url_for('static', filename='responsive.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='normalize.css') }}" rel="stylesheet"/>
 
         <title>Futuristic Recipes: {% block title %}{% endblock %}</title>
 
@@ -31,7 +26,7 @@
 
         <nav>
         <ul>
-            <li><a href="#"><img src="/static/images/logo.png"></a></li>
+            <li><a href="#"><img src="/static/logo.png"></a></li>
             <div id="links">
                 <li id="list-item"><a href="#">Home</a></li>
                 <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
@@ -49,10 +44,8 @@
             {% endif %}
 
             <main>
-                <div class="main">
                     
                     {% block main %}{% endblock %}
-                </div>    
             </main>
             
         </div>
