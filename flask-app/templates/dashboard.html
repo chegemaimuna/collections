@@ -3,7 +3,19 @@
   <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
   {% endblock %}
 {% block title %}
+Dashboard
+{% endblock %}
 
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('signup')}}"">LogOut</a></li>
+                </div>
+            </ul>
+            </nav>
 {% endblock %}
 
 {% block main %}
@@ -16,7 +28,7 @@
 
           <div class="aside">
             <ul>
-            <li><a href="view.html">Matoke  </a>  <a href="edit.html">Edit  </a>  <a href="#"><span style="color: #ea433b;">  Delete</span></a></li>
+            <li><a href="/view">Matoke  </a>  <a href="/edit">Edit  </a>  <a href="#"><span style="color: #ea433b;">  Delete</span></a></li>
             </ul>
             <ul><a href="#">Roasted Coffee</a></ul>
              <ul>

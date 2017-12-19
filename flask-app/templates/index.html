@@ -1,11 +1,24 @@
 {% extends "layout.html" %}
 
 {%block styles %}
-<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block title %}
   Home
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <ul>
+        <li><a href="#"><img src="/static/logo.png"></a></li>
+        <div id="links">
+            <li id="list-item"><a href="#">Home</a></li>
+            <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+            <li id="list-item"><a href="{{ url_for('signup')}}"">signup</a></li>
+        </div>
+    </ul>
+</nav>
 {% endblock %}
 
 {% block main %}

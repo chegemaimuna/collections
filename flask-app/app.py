@@ -1,22 +1,50 @@
-from flask import Flask, render_template, url_for
+"""Import objects"""
+from flask import Flask, render_template, url_for, request, flash
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
-@app.route("/")
+APP.config['SECRET_KEY'] = 'zyxwvutsrqponmlkj'
+
+@APP.route("/")
 def index():
-	return render_template("index.html")
+    """Root - display homepage"""
+    return render_template("index.html")
 
-@app.route("/login")
+@APP.route("/login")
 def login():
-	return render_template("login.html")
+    """Display login form"""
+    return render_template("login.html")
 
-@app.route("/signup")
+@APP.route("/signup", methods=['GET', 'POST'])
 def signup():
-	return render_template("signup.html")
+    """Display signup form"""
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        confirm = request.form['confirm']
+    
+        if username.isapha() != True:
+            flash("something went wrong!")
+            render_template("signup.html")
+    else:
 
-@app.route("/dashboard")
+        return render_template("signup.html")
+
+@APP.route("/dashboard")
 def dashboard():
-	return render_template("dashboard.html")
+    """Display logged in user's recipes"""
+    flash("testing!")
+    return render_template("dashboard.html")
+
+@APP.route("/edit")
+def edit():
+    """Display a form to add or edit recipes"""
+    return render_template("edit.html")
+
+@APP.route("/view")
+def view():
+    """Display a certain user's recipe"""
+    return render_template("view.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    APP.run(debug=True)

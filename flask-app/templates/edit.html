@@ -1,17 +1,33 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html"%}
 
+{% block styles %}
 <!-- styling -->
-<link rel="stylesheet" type="text/css" href="edit.css">
-<link rel="stylesheet" type="text/css" href="responsive.css">
-<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+edit
+{% block title %}
+{% endblock %}
+
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('dashboard')}}">dashboard</a></li>
+                    <li id="list-item"><a href="{{ url_for('signup')}}"">LogOut</a></li>
+                </div>
+            </ul>
+</nav>
+{% endblock %}
+{% block title %}
 	<!-- title -->
 	<title>Futuristic Edit: </title>
-</head>
-<body>
+{% endblock %}
+
+{% block main %}
 	<h1>Edit</h1>
 
 	<!-- signup form -->
@@ -25,5 +41,4 @@
 			<button type="submit" id="button">Submit</button>
 		</div>
 	</form>
-</body>
-</html>
+{% endblock %}

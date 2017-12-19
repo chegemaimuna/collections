@@ -2,7 +2,7 @@
 	
 	{%block styles %}
 	<link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet"/>
-	<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+	<link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
 	{% endblock %}
 
 
@@ -11,9 +11,21 @@
 	Login
 	{% endblock %}
 
-	{%block main %}
-	<h1>Login</h1>
+	{% block nav %}
+	 <nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('signup')}}"">signup</a></li>
+                </div>
+            </ul>
+     </nav>
+	{% endblock %}
 
+	{%block main %}
+	<section>
+	<h1>Login</h1>
 	<!-- signup form -->
 	<form>
 		<div id="form-group">
@@ -26,4 +38,14 @@
 			<button type="submit" id="button">Submit</button>
 		</div>
 	</form>
+</section>
+
+<footer class="section_alt">
+    <div class="content-wrapper">
+      <div class="copyright">
+          <span> Futuristic Recipes &copy; 2017. All Rights Reversed.</span>
+      </div>
+    </div>
+  </footer>
+
 {% endblock %}

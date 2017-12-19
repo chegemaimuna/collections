@@ -2,18 +2,42 @@
 
 {%block styles %}
 <link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet"/>
-<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block title %}
 signup
 {% endblock %}
 
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+                </div>
+            </ul>
+            </nav>
+{% endblock %}
+
 {% block main %}
 	<h1>Sign up</h1>
 
+	{% with messages = get_flashed_messages(with_categories=true) %}
+            <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <!-- <strong>Title</strong> --> {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
 	<!-- signup form -->
-	<form>
+	<form action="/signup">
 		<div id="form-group">
 		<div id="form-item">
 			<input class="form-input" type="text" name="username" required class="username" placeholder="username">
