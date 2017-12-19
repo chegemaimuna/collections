@@ -1,5 +1,5 @@
 html {
-	background: url(/static/imgs/futuristic.jpg);
+	background: url(futuristic.jpg);
 }
 
 nav ul {
@@ -11,12 +11,12 @@ h1 {
 	text-align: center;
 	margin: 40px;
 }
-#form-g {
+#form-group {
 	text-align: center;
 	margin-top: 100px;
 }
 
-#form-i {
+#form-item {
 	height: 90px;
 }
 

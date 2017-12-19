@@ -33,14 +33,14 @@ li {
 	padding: 0 1em;
 }
 
-section {
+/*section {
   margin-top: -20px;
   background-color: black;
   margin-left: 20px;
   margin-right: 20px;
   height: 100%;
   background: rgba(255,0,0,0.1) /* 10% opaque red */ 
-}
+/*}*/
 
 footer {
   background-color: black;

@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 	
-	{%block styles %}
-	<link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet"/>
-	<link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
+	{% block styles %}
+	{{ super ()}}
+	<link rel="stylesheet" href="{{ url_for('.static', filename='login.css') }}"/>
+	<link rel="stylesheet" href="{{ url_for('.static', filename='style.css') }}"/>
 	{% endblock %}
 
 
@@ -24,10 +25,9 @@
 	{% endblock %}
 
 	{%block main %}
-	<section>
 	<h1>Login</h1>
 	<!-- signup form -->
-	<form>
+	<form action="/login">
 		<div id="form-group">
 		<div id="form-item">
 			<input class="form-input" type="text" name="username" required class="username" placeholder="username">
@@ -38,7 +38,6 @@
 			<button type="submit" id="button">Submit</button>
 		</div>
 	</form>
-</section>
 
 <footer class="section_alt">
     <div class="content-wrapper">
