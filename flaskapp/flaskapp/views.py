@@ -1,9 +1,7 @@
-"""Import objects"""
+"""Import modules"""
 from flask import Flask, render_template, url_for, request, flash
-
-APP = Flask(__name__)
-
-APP.config['SECRET_KEY'] = 'zyxwvutsrqponmlkj'
+""" Import app """
+from flaskapp import APP
 
 @APP.route("/")
 def index():
@@ -22,10 +20,8 @@ def signup():
         username = request.form['username']
         password = request.form['password']
         confirm = request.form['confirm']
-    
-        if username.isapha() != True:
-            flash("something went wrong!")
-            render_template("signup.html")
+        if password != confirm:
+            flash("Opps! Password mismatch")
     else:
 
         return render_template("signup.html")
@@ -45,6 +41,3 @@ def edit():
 def view():
     """Display a certain user's recipe"""
     return render_template("view.html")
-
-if __name__ == '__main__':
-    APP.run(debug=True)
