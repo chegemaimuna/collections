@@ -35,10 +35,10 @@
             <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
             {% if messages %}
             {% for category, message in messages %}
-            <div class="alert alert-info alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <!-- <strong>Title</strong> --> {{ message }}
-            </div>
+                <div id="flash">
+                    <!-- <strong>Title</strong> --> {{ message }}
+                    <button type="button" class="close"><a href="">x</a></button>
+                </div>
             {% endfor %}
             {% endif %}
             {% endwith %}
@@ -47,6 +47,6 @@
                     
                     {% block main %}{% endblock %}
             </main>
-
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

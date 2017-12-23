@@ -11,14 +11,14 @@ signup
 
 {% block nav %}
 <nav>
-            <ul>
-                <li><a href="#"><img src="/static/logo.png"></a></li>
-                <div id="links">
-                    <li id="list-item"><a href="#">Home</a></li>
-                    <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
-                </div>
-            </ul>
-            </nav>
+    <ul>
+        <li><a href="#"><img src="/static/logo.png"></a></li>
+        <div id="links">
+            <li id="list-item"><a href="#">Home</a></li>
+            <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+        </div>
+    </ul>
+</nav>
 {% endblock %}
 
 {% block main %}

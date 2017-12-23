@@ -48,7 +48,7 @@ def signup():
         if signup == "success":
             return redirect(url_for('dashboard'))
         elif signup == "exists":
-            flash("user email or username exists", "error")
+            flash("email or username exists", "error")
             return render_template("signup.html")
         elif signup == "pass_fail":
             flash("password mismatch!", "error")
@@ -59,7 +59,6 @@ def signup():
 @APP.route("/dashboard")
 def dashboard():
     """Display logged in user's recipes"""
-    flash("testing!")
     return render_template("dashboard.html")
 
 @APP.route("/edit")

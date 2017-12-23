@@ -4,22 +4,24 @@ class Account(object):
 
     # constructor (new object of the class instantiated.)
     def __init__(self):
+        # dicts placeholder
         self.accounts = []
+        # dictionary to hold user's
+        self.registrant = dict()
 
     def adduser(self, username, email, password, confirm):
         """add a new user"""
-        registrant = {}
-        found = False
+        found = 0
         if password == confirm:
             for someone in self.accounts:
                 if username == someone['username'] or email == someone['email']:
-                    found = True
+                    found = 1
                     break
-            if found is False:
-                registrant['username'] = username
-                registrant['email'] = email
-                registrant['password'] = password
-                self.accounts.append(registrant)
+            if found is 0:
+                self.registrant['username'] = username
+                self.registrant['email'] = email
+                self.registrant['password'] = password
+                self.accounts.append(self.registrant)
                 return "success"
             else:
                 return "exists"

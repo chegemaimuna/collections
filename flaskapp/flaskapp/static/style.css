@@ -58,7 +58,6 @@ footer {
     vertical-align: middle;
   }
 
-
 /*----------
 Typography
 -----------*/
@@ -81,6 +80,11 @@ p {
   text-align: center;
   font-size: 1.2em;
 }
+
+button:hover{
+  font-size: 1.1em;
+}
+
 
 
 
@@ -105,6 +109,22 @@ h1,
 
 a:hover {
   color: #25C2F7;
+}
+
+/*Flash messages*/
+#flash {
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.close a {
+  color: black;
+}
+button {
+  background-color: #FFD2D2;
+}
+button:hover {
+  background-color: #D8000C;
 }
 
 
