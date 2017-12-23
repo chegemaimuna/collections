@@ -1,5 +1,5 @@
 """Import objects"""
-from flask import render_template, url_for, request, flash, jsonify
+from flask import render_template, url_for, request, flash, jsonify, redirect
 from flaskapp import APP
 from flaskapp import models
 
@@ -17,12 +17,15 @@ def login():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
-        acc = Account()
-        login = acc.Login(username, password)
+        # server side validation for users that might bypass javascript check
+        if username == "" or password == "":
+            return '<h1>Please input the required details!</h1>'
+        login = registrant.login(username, password)
         
         if login == "success":
-             return render_template('dashboard.html')
-        else:
+             return redirect(url_for('dashboard'))
+        elif login == "fail":
+            flash("error", "error")
             return render_template('login.html')
 
     else:
@@ -39,18 +42,17 @@ def signup():
         confirm = request.form['confirm']
 
         # check for empty input bypass(if user disables javascript in the browser)
-        #if username == "" or email == "" or password == "" or confirm == "":
-        #    return '<h1>Error! please input required data</h1>'
-        #else:
-            # create an instance of the class Account to play with.
-
-        signup = registrant.Adduser(username, email, password, confirm)
+        if username == "" or email == "" or password == "" or confirm == "":
+            return '<h1>Error! please input required data</h1>'
+        signup = registrant.adduser(username, email, password, confirm)
         if signup == "success":
-            return '<h1>success</h1>'
+            return redirect(url_for('dashboard'))
         elif signup == "exists":
-            return '<h1>User exists</h1>'
+            flash("user email or username exists", "error")
+            return render_template("signup.html")
         elif signup == "pass_fail":
-            return '<h1>password mismatch!</h1>'
+            flash("password mismatch!", "error")
+            return render_template("signup.html")
     else:
         return render_template("signup.html")
 
