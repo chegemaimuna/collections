@@ -6,7 +6,7 @@ class Account(object):
     def __init__(self):
         # dicts placeholder
         self.accounts = []
-        # dictionary to hold user's
+        # dictionary to hold user's info
         self.registrant = dict()
 
     def adduser(self, username, email, password, confirm):
@@ -22,9 +22,9 @@ class Account(object):
                 self.registrant['email'] = email
                 self.registrant['password'] = password
                 self.accounts.append(self.registrant)
-                return "success"
+                return True
             else:
-                return "exists"
+                return False
         else:
             return "pass_fail"
     def login(self, username, password):

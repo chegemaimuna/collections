@@ -17,7 +17,7 @@ def login():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
-        # server side validation for users that might bypass javascript check
+        # server side validation for users that might bypass javascript check by disabling it in their browser
         if username == "" or password == "":
             return '<h1>Please input the required details!</h1>'
         login = registrant.login(username, password)
@@ -41,17 +41,17 @@ def signup():
         password = request.form['password']
         confirm = request.form['confirm']
 
-        # check for empty input bypass(if user disables javascript in the browser)
+        # server side validation for users that might bypass javascript check by disabling it in their browser
         if username == "" or email == "" or password == "" or confirm == "":
             return '<h1>Error! please input required data</h1>'
         signup = registrant.adduser(username, email, password, confirm)
-        if signup == "success":
+        if signup is True:
             return redirect(url_for('dashboard'))
-        elif signup == "exists":
-            flash("email or username exists", "error")
+        elif signup is False:
+            flash("email or username exists")
             return render_template("signup.html")
         elif signup == "pass_fail":
-            flash("password mismatch!", "error")
+            flash("password mismatch!")
             return render_template("signup.html")
     else:
         return render_template("signup.html")

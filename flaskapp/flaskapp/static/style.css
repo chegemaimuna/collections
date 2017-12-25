@@ -58,6 +58,10 @@ footer {
     vertical-align: middle;
   }
 
+  &.reverse{
+    -webkit-animation: alert-reverse 0.5s forwards;
+  }
+
 /*----------
 Typography
 -----------*/
