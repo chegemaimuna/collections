@@ -22,9 +22,9 @@ def login():
             return '<h1>Please input the required details!</h1>'
         login = registrant.login(username, password)
         
-        if login == "success":
+        if login is True:
              return redirect(url_for('dashboard'))
-        elif login == "fail":
+        elif login is False:
             flash("error", "error")
             return render_template('login.html')
 

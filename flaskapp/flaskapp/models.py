@@ -31,6 +31,6 @@ class Account(object):
         """login an existing user"""
         for registrant in self.accounts:
             if username == registrant['username'] and password == registrant['password']:
-                return "success"
+                return True
         else:
-            return "fail"
+            return False
