@@ -1,6 +1,6 @@
 """A user login system"""
 class Account(object):
-    """Handles registration of new users and login existing ones"""
+    """register new users and login existing ones"""
 
     # constructor (new object of the class instantiated.)
     def __init__(self):
@@ -30,7 +30,7 @@ class Account(object):
     def login(self, username, password):
         """login an existing user"""
         for registrant in self.accounts:
-            if username == registrant['username'] and password == registrant['password']:
+            if username in registrant['username'] and password in registrant['password']:
                 return True
         else:
             return False
