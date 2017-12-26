@@ -6,6 +6,9 @@
 * Make sure you have `pip` installed. If new to this follow this [link](https://packaging.python.org/tutorials/installing-packages/)
 * Make sure you are in the environement that you created and Install dependencies. `pip install -r requirements.txt`
 * Navigate your way to the `~/flaskapp/flaskapp/` directory.
-* Run `pip install -e .` Then `flask run`.
-* visit `http://localhost:5000/` in your browser.
+* Run `pip install -e .` 
+* Run `export FLASK_APP=flaskapp` _note: No space between the equal sign_.
+* Run `export FLASK_DEBUG=1` to allow debugging if needed. 
+* Finally run `flask run`.
+* visit `http://127.0.0.1:5000/` in your browser.
 ## enjoy!

@@ -1,7 +1,7 @@
-# recipes
-A Flask app that will allow users to create a collection of their favourite `recipes`.
+# Collection
+An app that will allow users to create `a collection` of stuffs.
 
-## The user will be able to register and login. Create, view, edit and delete their recipes and share them with friends.
+* The user will be able to register and login. Create, view, edit and delete their collections and share them with friends.
 
 ## Directory structure:
 
