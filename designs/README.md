@@ -1,4 +1,4 @@
-# Colleti
+# Colletion
 An app that will allow users to create `a collection` of stuffs.
 
 ## The user will be able to register and login. Create, view, edit and delete their collections and share them with friends.
