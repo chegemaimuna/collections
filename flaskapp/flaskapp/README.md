@@ -1,4 +1,4 @@
-# [Flask](http://flask.pocoo.org/) App To Keep Track of a collection of *Recipes*
+# [App](http://flask.pocoo.org/) To Keep Track of a collection of *Stuffs*
 
 # Installation:
 * Clone this repo to your workspace
