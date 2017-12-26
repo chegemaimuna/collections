@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{%block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+{% endblock %}
+
+{% block title %}
+signup
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <ul>
+        <li><a href="#"><img src="/static/logo.png"></a></li>
+        <div id="links">
+            <li id="list-item"><a href="#">Home</a></li>
+            <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+        </div>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block main %}
+	<h1>Sign up</h1>
+
+	<!-- signup form -->
+	<form method="POST" action="/signup">
+		<div id="form-group">
+			<div id="form-item">
+				<input class="form-input" type="text" name="username" required  placeholder="username">
+			</div>
+			<div id="form-item">
+				<input class="form-input" type="text" name="email" required  placeholder="email">
+			</div>
+			<div id="form-item">
+				<input class="form-input" type="password" name="password" required placeholder="password">
+			</div>
+			<div id="form-item">
+				<input class="form-input" type="password" name="confirm" required  placeholder="confirm">
+			</div>
+				<button type="submit" id="button">Submit</button>
+		</div>
+	</form>
+	<footer class="section_alt">
+    <div class="content-wrapper">
+      <div class="copyright">
+          <span> Futuristic Recipes &copy; 2017. All Rights Reversed.
+</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+{% endblock %}

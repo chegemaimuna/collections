@@ -3,9 +3,13 @@
 ----------*/
 
 body {
-	text-align: center;
-	background: url(futuristic.jpg) no-repeat center center fixed;
-	margin: 0;
+  text-align: center;
+  background: url(futuristic.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
   color: #ffffff;
 }
 
@@ -14,29 +18,29 @@ nav ul {
 }
 
 .section_top {
-	padding: 2em;
+  padding: 2em;
   background-color: #000;
   text-align: center;
 }
 
 ul {
-	list-style-type: none;
-	padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-	display: inline;
-	padding: 0 1em;
+  display: inline;
+  padding: 0 1em;
 }
 
-section {
+/*section {
   margin-top: -20px;
   background-color: black;
   margin-left: 20px;
   margin-right: 20px;
   height: 100%;
   background: rgba(255,0,0,0.1) /* 10% opaque red */ 
-}
+/*}*/
 
 footer {
   background-color: black;
@@ -54,6 +58,9 @@ footer {
     vertical-align: middle;
   }
 
+  &.reverse{
+    -webkit-animation: alert-reverse 0.5s forwards;
+  }
 
 /*----------
 Typography
@@ -78,6 +85,11 @@ p {
   font-size: 1.2em;
 }
 
+button:hover{
+  font-size: 1.1em;
+}
+
+
 
 
  /*-------------
@@ -101,6 +113,22 @@ h1,
 
 a:hover {
   color: #25C2F7;
+}
+
+/*Flash messages*/
+#flash {
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.close a {
+  color: black;
+}
+button {
+  background-color: #FFD2D2;
+}
+button:hover {
+  background-color: #D8000C;
 }
 
 

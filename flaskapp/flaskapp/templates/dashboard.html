@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Futuristic Recipes</title>
+{% extends "layout.html" %}
+{%block styles %}
+  <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
+  {% endblock %}
+{% block title %}
+Dashboard
+{% endblock %}
 
-<meta charset="utf-8">
-  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('signup')}}"">LogOut</a></li>
+                </div>
+            </ul>
+            </nav>
+{% endblock %}
 
-	<!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300|Dawning+of+a+New+Day|Source+Sans+Pro:400,400i,700" rel="stylesheet">
-
-
-	<!-- styling -->
-	<link rel="stylesheet" type="text/css" href="dashboard.css">
-	<link rel="stylesheet" type="text/css" href="responsive.css">
-
-</head>
-
-	<header id="top" class="section_top">
-		<nav>
-			<ul>
-        <li><a href="#"><img src="logo.png"></a></li>
-        <div id="links">
-        <li id="list-item"><a href="#">Dashboard</a></li>
-				<li id="list-item"><a href="#">LogOut</a></li>
-      </div>
-			</ul>
-		</nav>
-	</header>
-
-<body>
-<main>
-
+{% block main %}
 	<!-- About -->
-	<section class="section" id="about">
       <div class="content-wrapper">
 
         <h3 id="about-me">Futuristic Recipes</h3>
@@ -42,7 +28,7 @@
 
           <div class="aside">
             <ul>
-            <li><a href="view.html">Matoke  </a>  <a href="edit.html">Edit  </a>  <a href="#"><span style="color: #ea433b;">  Delete</span></a></li>
+            <li><a href="/view">Matoke  </a>  <a href="/edit">Edit  </a>  <a href="#"><span style="color: #ea433b;">  Delete</span></a></li>
             </ul>
             <ul><a href="#">Roasted Coffee</a></ul>
              <ul>
@@ -93,8 +79,6 @@
         </div>
 
       </div>
-    </section>
-</main>
 <footer class="section_alt">
     <div class="content-wrapper">
       <div class="copyright">
@@ -103,6 +87,4 @@
       </div>
     </div>
   </footer>
-
-</body>
-</html>
+{% endblock %}
