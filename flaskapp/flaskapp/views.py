@@ -1,11 +1,18 @@
 """Import objects"""
 import re
-from flask import render_template, url_for, request, flash, redirect
+from flask import render_template, url_for, request, flash, redirect, session
 from flaskapp import APP
 from flaskapp import models
 
 # an instance of Account class (responsible for user registration and login)
 REGISTRANT = models.Account()
+
+def login_required():
+    if "username" not in session:
+        flash('pleasse login to continue', 'error')
+        return "fail"
+    else:
+        return "pass"
 
 @APP.route("/")
 def index():
@@ -45,7 +52,8 @@ def signup():
         # server side validation for users that might bypass
         # javascript check by disabling it in their browser
         #if username == "" or email == "" or password == "" or confirm == "":
-        #    return '<h1>Error! please input required data</h1>'
+        #    flash("please input required details!")
+        #    return render_template("signup.html")
         # check for correct email format
         # check whether email has exactly one @ sign, and at least one . in the part after the @
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
@@ -71,6 +79,16 @@ def signup():
 def dashboard():
     """Display logged in user's recipes"""
     return render_template("dashboard.html")
+
+@APP.route("/addlist", methods=['GET', 'POST'])
+    def addlist():
+        """Adds a new lists"""
+        if login_required() = "fail":
+            return redirect(url_for('login'))
+        else:
+            if request.method == 'POST':
+                title = request.form['title']
+
 
 @APP.route("/edit")
 def edit():
