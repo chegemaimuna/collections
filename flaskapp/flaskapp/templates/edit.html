@@ -9,6 +9,7 @@
 {% endblock %}
 edit
 {% block title %}
+	edit
 {% endblock %}
 
 {% block nav %}
@@ -18,26 +19,21 @@ edit
                 <div id="links">
                     <li id="list-item"><a href="#">Home</a></li>
                     <li id="list-item"><a href="{{ url_for('dashboard')}}">dashboard</a></li>
-                    <li id="list-item"><a href="{{ url_for('signup')}}"">LogOut</a></li>
+                    <li id="list-item"><a href="{{ url_for('logout')}}"">LogOut</a></li>
                 </div>
             </ul>
 </nav>
 {% endblock %}
-{% block title %}
-	<!-- title -->
-	<title>Futuristic Edit: </title>
-{% endblock %}
-
 {% block main %}
 	<h1>Edit</h1>
 
 	<!-- signup form -->
-	<form>
+	<form action="{{ url_for('edit', id=id) }}" method="post">
 		<div id="form-group">
 		<div id="form-item">
-			<input class="form-input" type="text" name="title" required class="title" placeholder="title">
+			<input class="form-input" type="text" name="title" required class="title" value="{{title}}">
 		</div>
-		<textarea placeholder="Procedures" name="procedures" required ></textarea>
+		<textarea name="procedures" required >{{procedures}}</textarea>
 		<div>
 			<button type="submit" id="button">Submit</button>
 		</div>

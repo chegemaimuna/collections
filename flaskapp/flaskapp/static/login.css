@@ -1,5 +1,6 @@
 html {
-	background: url(futuristic.jpg);
+	/*background: url(futuristic.jpg);*/
+	background:url("bg.png") no-repeat center center fixed;
 }
 
 nav ul {
@@ -13,11 +14,19 @@ h1 {
 }
 #form-group {
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 #form-item {
 	height: 90px;
+}
+
+input:focus {
+    outline:none !important;
+}
+
+::-webkit-input-placeholder{
+	color: #DCDCDC !important;
 }
 
 .form-input {
@@ -25,11 +34,10 @@ h1 {
 	text-align: center;
 	font-size: 16px;
 	padding: 10px;
-	border:1px solid rgba(0,0,0,.15);
-	border-color: #4f74e3;
-    border-radius:.25em;
-    background-color:#fff;
-    color:#464a4c;
+	border: 1.5px solid rgba(0,0,0,.15);
+    border-radius: 1em;
+    background-color:#787878;
+    color:#ffffff;
 }
 
 #button {

@@ -12,7 +12,8 @@ Dashboard
                 <li><a href="#"><img src="/static/logo.png"></a></li>
                 <div id="links">
                     <li id="list-item"><a href="#">Home</a></li>
-                    <li id="list-item"><a href="{{ url_for('signup')}}"">LogOut</a></li>
+                    <li id="list-item"><a href="{{ url_for('logout')}}"">LogOut</a></li>
+                    <li id="list-item"><a href="{{ url_for('addrecipe')}}">Add Recipe</a></li>
                 </div>
             </ul>
             </nav>
@@ -27,49 +28,12 @@ Dashboard
         <div id="blurb" class="clearfix">
 
           <div class="aside">
-            <ul>
-            <li><a href="/view">Matoke  </a>  <a href="/edit">Edit  </a>  <a href="#"><span style="color: #ea433b;">  Delete</span></a></li>
-            </ul>
-            <ul><a href="#">Roasted Coffee</a></ul>
-             <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul>
-             <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul>
-             <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul>
-             <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul>
-             <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul> 
-            <ul>
-            <li><a href="#">Matoke</a></li>
-            </ul>
-            <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
-              <ul>
-            <li><a href="#">A Recipe</a></li>
-            </ul>
+          	{{available_recipes}}
+            {% for recipe in available_recipes %}
+            {% if recipe['username'] == username %}
+            <p><a href="{{url_for('review', id=recipe['id'])}}">{{recipe['title']}}</a></p>
+            {% endif %}
+            {% endfor %}
           </div>
 
           <div id="spacer">
@@ -79,12 +43,4 @@ Dashboard
         </div>
 
       </div>
-<footer class="section_alt">
-    <div class="content-wrapper">
-      <div class="copyright">
-          <span> Futuristic Recipes &copy; 2017. All Rights Reversed.
-</span>
-      </div>
-    </div>
-  </footer>
 {% endblock %}

@@ -1,102 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Futuristic Recipes</title>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
 
-	<!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300|Dawning+of+a+New+Day|Source+Sans+Pro:400,400i,700" rel="stylesheet">
+  <!-- styling -->
+  {% block styles %}
+  <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
+  {% endblock %}
 
+  {%block title %}
+  review
+  {% endblock %}
 
-	<!-- styling -->
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="responsive.css">
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="{{ url_for('dashboard')}}"">Dashboard</a></li>
+                    <li id="list-item"><a href="{{ url_for('addrecipe')}}">Add Recipe</a></li>
+                </div>
+            </ul>
+            </nav>
+{% endblock %}
 
-</head>
-
-	<header id="top" class="section_top">
-		<nav>
-			<ul>
-        <li><a href="#"><img src="logo.png"></a></li>
-        <div id="links">
-				<li id="list-item"><a href="dashboard.html">Dashboard</a></li>
-				<li id="list-item"><a href="#">LogOut</a></li>
-      </div>
-			</ul>
-		</nav>
-	</header>
-
-<body>
-<main>
-
+{% block main %}
 	<!-- Recipes -->
-	<section class="section" id="about">
-      <div class="content-wrapper">
 
         <h3 id="about-me">Futuristic Recipes</h3>
-
-        <div id="blurb" class="clearfix">
-
-          <div class="aside">
-           <p>This is your recipe(Not really!)</p>
-           <P>Matoke</P>
+           <p>This is your recipe(really!)</p>
+           <P>{{recipename}}  <a href="{{ url_for('edit', id=id) }}"><button>Edit</button></a> <a href="{{url_for('delete', id=id)}}"> <button>Delete</button></a></P>
 
            <h1>Procedure</h1>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-           <ul>
-             <li>1. do something</li>
-           </ul>
-          </div>
-
-
-          <div id="spacer">
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-</main>
-
-</body>
-</html>
+           {{procedures}}
+{% endblock %}

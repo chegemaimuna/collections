@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html"%}
+
+{% block styles %}
 <!-- styling -->
-<link rel="stylesheet" type="text/css" href="edit.css">
-<link rel="stylesheet" type="text/css" href="responsive.css">
-<head>
-	<!-- title -->
-	<title>Futuristic Add: </title>
-</head>
-<body>
+{{ super ()}}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+edit
+{% block title %}
+add
+{% endblock %}
+
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('dashboard')}}">dashboard</a></li>
+                    <li id="list-item"><a href="{{ url_for('logout')}}"">LogOut</a></li>
+                </div>
+            </ul>
+</nav>
+{% endblock %}
+{% block main %}
 	<h1>Add</h1>
 
-	<!-- a form to add a recipe-->
-	<form>
+	<!-- signup form -->
+	<form action="/addrecipe" method="post">
 		<div id="form-group">
 		<div id="form-item">
 			<input class="form-input" type="text" name="title" required class="title" placeholder="title">
 		</div>
-		<textarea required placeholder="procedure"></textarea>
+		<textarea placeholder="Procedures" name="procedures" required ></textarea>
 		<div>
 			<button type="submit" id="button">Submit</button>
 		</div>
 	</form>
-</body>
-</html>
+{% endblock %}
