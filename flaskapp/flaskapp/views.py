@@ -62,7 +62,7 @@ def signup():
         #else:
         signup_registrant = REGISTRANT.adduser(username, email, password, confirm)
         if signup_registrant is True:
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('login'))
         elif signup_registrant is False:
             return apology("email or username exists")
         elif signup_registrant == "pass_fail":
