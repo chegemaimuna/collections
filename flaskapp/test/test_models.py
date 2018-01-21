@@ -2,7 +2,7 @@
 # import the standard unittest
 import unittest
 # import account & list classes from models.py
-from flaskapp.models import Account, Lists
+from flaskapp.models import *
 
 class TestRecipeSignupAndLogin(unittest.TestCase):
     """test for successful and unsuccessful signup and login"""

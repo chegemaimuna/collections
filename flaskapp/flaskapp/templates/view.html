@@ -26,8 +26,15 @@
 
         <h3 id="about-me">Futuristic Recipes</h3>
            <p>This is your recipe(really!)</p>
-           <P>{{recipename}}  <a href="{{ url_for('edit', id=id) }}"><button>Edit</button></a> <a href="{{url_for('delete', id=id)}}"> <button>Delete</button></a></P>
+           <P>{{recipename}}  <a href="{{ url_for('edit', id=id) }}"><button>Edit</button></a> <a href="{{url_for('delete', id=id)}}"> <button>Delete</button></a>
+           </P>
 
            <h1>Procedure</h1>
-           {{procedures}}
+           <div>
+{% for i in available_procedures %}
+{% if i['id'] == id %}
+<p>~<a>{{i['procedure']}}</a></p>
+{% endif %}
+{% endfor %}
+</div>
 {% endblock %}

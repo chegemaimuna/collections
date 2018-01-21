@@ -10,6 +10,7 @@ from flaskapp.helpers import *
 # an instance of Account class (responsible for user registration and login)
 REGISTRANT = Account()
 LIST = Lists()
+PROCEDURES = Procedures()
 
 @APP.route("/")
 def index():
@@ -30,7 +31,7 @@ def login():
         login_rigistrant = REGISTRANT.login(username, password)
         if login_rigistrant is True:
             session["username"] = username
-            return redirect(url_for('dashboard', username=session["username"]))
+            return redirect(url_for('dashboard', username=username))
         elif login_rigistrant is False:
             return apology("please check your details and try again")
 
@@ -99,9 +100,8 @@ def addrecipe():
     if request.method == 'POST':
         owner = session["username"]
         title = request.form['title']
-        procedures = request.form['procedures']
         # add a recpe to recipes
-        addrecipe = LIST.addrecipe(owner, title, procedures)
+        addrecipe = LIST.addrecipe(owner, title)
         if addrecipe == True:
             available_recipes = LIST.mylists()
             return render_template("dashboard.html", username=session["username"], available_recipes=available_recipes)
@@ -140,11 +140,11 @@ def edit(id):
 def review(id):
     """review a certain recipe"""
     recipelist = LIST.mylists()
+    available_procedures = PROCEDURES.allprocedures()
     for i in recipelist:
         if i['id'] == int(id):
             recipename = i['title']
-            procedures = i['procedures']
-            return render_template("view.html", id=id, recipename=recipename, procedures=procedures)
+            return render_template("view.html", id=id, recipename=recipename, available_procedures=available_procedures)
     return render_template("view.html")
 
 @APP.route("/view")
@@ -161,5 +161,17 @@ def delete(id):
 		if d['id'] == int(id):
 			recipe.pop(i)
 			return redirect(url_for('dashboard'))
-			break
-
+@APP.route('/addprocedure/<id>', methods=['GET', 'POST'])
+@login_required
+def addprocedure(id):
+	if request.method == 'GET':
+		available_procedures = PROCEDURES.allprocedures()
+		return render_template("procedure.html", id=id, username=session['username'], available_procedures=available_procedures)
+	elif request.method == 'POST':
+		owner = session['username']
+		procedure = request.form['procedure']
+		add_aprocedure = PROCEDURES.addprocedure(id, owner, procedure)
+		if add_aprocedure == True:
+			return redirect(url_for('dashboard'))
+		elif add_aprocedure == False:
+			return apology("Something went wrong!")
