@@ -117,23 +117,21 @@ def addrecipe():
 def edit(id):
     """Display a form to add or edit recipes"""
     recipes = LIST.mylists()
+    procedures = PROCEDURES.allprocedures()
     if request.method == 'POST': 
         for idx, item in enumerate(recipes):
             if item['id'] == int(id):
                holder = dict()
                holder['id'] = int(id)
                holder['title'] = request.form['title']
-               holder['procedures'] = request.form['procedures']
                holder['username'] = session['username']
                recipes[idx] = holder
                return redirect(url_for('dashboard'))
     elif request.method == 'GET':
-	    for j in recipes:
-	    	if j['id'] == int(id):
-	    		title = j['title']
-	    		procedures = j['procedures']
-	    		return render_template("edit.html", id=id, title=title, procedures=procedures)
-    return render_template("edit.html", id=id)
+        for j in recipes:
+            if j['id'] == int(id):
+                title = j['title']
+                return render_template("edit.html", id=id, title=title)
 
 @APP.route("/review/<id>")
 @login_required
