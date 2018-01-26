@@ -1,6 +1,6 @@
 """Import objects"""
 from flask import Flask, session
-from flask_session import Session
+#from flask_session import Session
 from tempfile import mkdtemp
 
 # configure application
@@ -26,7 +26,7 @@ if APP.config["DEBUG"]:
 APP.config["SESSION_FILE_DIR"] = mkdtemp()
 APP.config["SESSION_PERMANENT"] = False
 APP.config["SESSION_TYPE"] = "filesystem"
-Session(APP)
+#Session(APP)
 
 if __name__ == '__main__':
     APP.run(debug=True)
