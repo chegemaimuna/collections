@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/james-chege/collection.svg?branch=master)](https://travis-ci.org/james-chege/collection)
 [![Coverage Status](https://coveralls.io/repos/github/james-chege/collection/badge.svg?branch=master)](https://coveralls.io/github/james-chege/collection?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/78ada6fd0251718d154a/maintainability)](https://codeclimate.com/github/james-chege/collection/maintainability)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bcc54e33860340149a8dd0fde26fc2ba)](https://www.codacy.com/app/chegee/collection?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=james-chege/collection&amp;utm_campaign=Badge_Grade)
 ## This app auto builds for testing
 # collection
 # [App](http://flask.pocoo.org/) To Keep Track of a collection of *Stuffs*
