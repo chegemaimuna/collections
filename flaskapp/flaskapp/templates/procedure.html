@@ -1,0 +1,48 @@
+{% extends "layout.html"%}
+
+{% block styles %}
+<!-- styling -->
+{{ super ()}}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+edit
+{% block title %}
+add
+{% endblock %}
+
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('dashboard')}}">dashboard</a></li>
+                    <li id="list-item"><a href="{{ url_for('logout')}}"">LogOut</a></li>
+                </div>
+            </ul>
+</nav>
+{% endblock %}
+{% block main %}
+{{available_procedures}}
+<div>
+{% for i in available_procedures %}
+{% if i['id'] == id %}
+<p>~<a>{{i['procedure']}}</a></p>
+{% endif %}
+{% endfor %}
+</div>
+	<h1>Add Procedure</h1>
+
+	<!-- signup form -->
+	<form action="{{url_for('addprocedure', id=id)}}" method="post">
+		<div id="form-group">
+		<div id="form-item">
+			<input class="form-input" type="text" name="procedure" required class="title" placeholder="procedure">
+		</div>
+		<div>
+			<button type="submit" id="button">Submit</button>
+		</div>
+	</form>
+{% endblock %}

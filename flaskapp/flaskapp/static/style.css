@@ -1,0 +1,147 @@
+/*---------
+ General
+----------*/
+
+body {
+  text-align: center;
+  background-color: rgb(255, 0, 0, 0); 
+  /*background: url(futuristic.jpg) no-repeat center center fixed;*/
+  background:url("bg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  color: #ffffff;
+}
+
+nav ul {
+  display: inline;
+}
+
+.section_top {
+  padding: 2em;
+  background-color: #000;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  padding: 0 1em;
+}
+
+/*section {
+  margin-top: -20px;
+  background-color: black;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100%;
+  background: rgba(255,0,0,0.1) /* 10% opaque red */ 
+/*}*/
+
+footer {
+  background-color: #282828;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 235px;
+  line-height: 60px; /* Vertically center the text there */
+  color: #ffffff
+}
+
+#aside li{
+    vertical-align: middle;
+  }
+
+  &.reverse{
+    -webkit-animation: alert-reverse 0.5s forwards;
+  }
+
+/*----------
+Typography
+-----------*/
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+ul {
+  font-family: "Lato", sans sans-serif;
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.copyright {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+button:hover{
+  font-size: 1.1em;
+}
+
+
+
+
+ /*-------------
+  color schemes 
+  --------------*/
+
+.section_top {
+    background-color: #000;
+  }
+
+h1,
+ h2 {
+   color: #4AB19A;
+ }
+
+ a,
+ a:visited {
+   color: #4AB19A;
+   text-decoration: none;
+ }
+
+a:hover {
+  color: #25C2F7;
+}
+
+/*Flash messages*/
+#flash {
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.close a {
+  color: black;
+}
+button {
+  background-color: #FFD2D2;
+}
+button:hover {
+  background-color: #D8000C;
+}
+
+
+/*----------
+Multimedia
+------------*/
+
+.section_top a img {
+  width: 7em;
+  position : left;
+  display: inline-block;
+  width: auto;
+  margin-top: 15px;
+  height: 30px;
+}

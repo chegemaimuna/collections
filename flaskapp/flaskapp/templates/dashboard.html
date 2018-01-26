@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{%block styles %}
+  <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet"/>
+  {% endblock %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block nav %}
+<nav>
+            <ul>
+                <li><a href="#"><img src="/static/logo.png"></a></li>
+                <div id="links">
+                    <li id="list-item"><a href="#">Home</a></li>
+                    <li id="list-item"><a href="{{ url_for('logout')}}"">LogOut</a></li>
+                    <li id="list-item"><a href="{{ url_for('addrecipe')}}">Add Recipe</a></li>
+                </div>
+            </ul>
+            </nav>
+{% endblock %}
+
+{% block main %}
+	<!-- About -->
+      <div class="content-wrapper">
+
+        <h3 id="about-me">Futuristic Recipes</h3>
+
+        <div id="blurb" class="clearfix">
+
+          <div class="aside">
+          	{{available_recipes}}
+            {% for recipe in available_recipes %}
+            {% if recipe['username'] == username %}
+            <p><a href="{{url_for('review', id=recipe['id'])}}">{{recipe['title']}}</a> <a href="{{url_for('addprocedure', id=recipe['id'])}}">procedures</a></p>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <div id="spacer">
+          </div>
+
+
+        </div>
+
+      </div>
+{% endblock %}
