@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/james-chege/collection.svg?branch=master)](https://travis-ci.org/james-chege/collection)
+[![Coverage Status](https://coveralls.io/repos/github/james-chege/collection/badge.svg?branch=master)](https://coveralls.io/github/james-chege/collection?branch=master)
 ## This app auto builds for testing
 # collection
 # [App](http://flask.pocoo.org/) To Keep Track of a collection of *Stuffs*
