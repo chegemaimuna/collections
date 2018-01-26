@@ -8,6 +8,7 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
     """test for successful and unsuccessful signup and login"""
     def setUp(self):
         self.acc = Account()
+        self.list = Lists()
     #"""
     #
     #signup tests
@@ -45,6 +46,17 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
         self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
         result = self.acc.login("name", "wrong_1@Strongpass")
         self.assertEqual(False, result)
+
+    """
+    #
+    #List Tests
+    #
+    """
+    def test_addrecipe(self):
+        """returns true if a colletion title was added successfully"""
+        result = self.list.addrecipe("name", "title")
+        self.assertEqual(True, result)
+
 if __name__ == '__main__':
     unittest.main()
     
