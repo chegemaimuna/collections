@@ -1,0 +1,11 @@
+@media screen and (min-width: 480px) {
+  .content-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .aside {
+    text-align: center;
+  }
+}

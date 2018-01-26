@@ -1,0 +1,40 @@
+html {
+	background: url(futuristic.jpg);
+}
+h1 {
+	color: white;
+	text-align: center;
+	margin: 40px;
+}
+#form-group {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#form-item {
+	height: 90px;
+}
+
+.form-input {
+	width: 20%;
+	text-align: center;
+	font-size: 16px;
+	padding: 10px;
+	border:1px solid rgba(0,0,0,.15);
+	border-color: #4f74e3;
+    border-radius:.25em;
+    background-color:#fff;
+    color:#464a4c;
+}
+
+#button {
+	border: 30px;
+	border-radius: 5%;
+	padding: 10px;
+	width: auto;
+	background-color: green;
+	color: white;
+}
+#button:hover {
+	background-color: #29AB87;
+}

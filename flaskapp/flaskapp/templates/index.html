@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{%block styles %}
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <ul>
+        <li><a href="#"><img src="/static/logo.png"></a></li>
+        <div id="links">
+            <li id="list-item"><a href="#">Home</a></li>
+            <li id="list-item"><a href="{{ url_for('login')}}">Login</a></li>
+            <li id="list-item"><a href="{{ url_for('signup')}}">signup</a></li>
+        </div>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block main %}
+
+	<!-- About -->
+      <div class="content-wrapper">
+
+        <h3 id="about-us">Futuristic Recipes</h3>
+
+        <div id="blurb" class="clearfix">
+
+          <div class="intro">
+            <p><strong>Hi!</strong> Want to create a collection of your favourite recipes?</p>
+            <p>Here, you will be able to create your own recipes and refer to them any time from anywhere.</p>
+            <P>Keep recipes organized without breaking your flow.</P>
+            <p> Futuristic recipes brings your <em>recipes</em> together, in one central place. They’re easy to find and safely synced across all your devices—so you can access them anytime, anywhere. No more wasting the day tracking down recipes.</P>
+
+            <p>Enjoy Using our services</p>
+
+          </div>
+
+          <div id="spacer">
+          </div>
+
+
+        </div>
+
+      </div>
+<footer class="section_alt">
+    <div class="content-wrapper">
+      <div class="copyright">
+          <span> Futuristic Recipes &copy; 2017. All Rights Reversed.
+</span>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
