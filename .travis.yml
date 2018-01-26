@@ -9,7 +9,7 @@ script:
   # nosetest
   # nosetests --with-coverage --cover-erase --cover-inclusive --cover-package=app
   # pytest
-   py.test --cov-report term --cov=flaskapp/flaskapp/models.py flaskapp/test/test_models.py
+   py.test --cov-report term --cov=flaskapp/flaskapp flaskapp/test/test_models.py
 after_success:
    coveralls
 notifications:
