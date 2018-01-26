@@ -14,4 +14,3 @@ after_success:
    coveralls
 notifications:
   # don't send email for succeful and unsuccessful builds
-  
