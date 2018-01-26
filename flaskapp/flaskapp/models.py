@@ -6,11 +6,11 @@ class Account(object):
     def __init__(self):
         # dicts placeholder
         self.accounts = []
-        # dictionary to hold user's info
-        self.registrant = dict()
 
     def adduser(self, username, email, password, confirm):
         """add a new user"""
+        # dictionary to hold user's info
+        self.registrant = dict()
         found = 0
         if password == confirm:
             for someone in self.accounts:
@@ -34,3 +34,56 @@ class Account(object):
                 return True
         else:
             return False
+
+
+class Lists(object):
+    """keep user's lists"""
+
+    # constructor
+    def __init__(self):
+        # placeholder for lists
+        self.recipes = []
+
+    def addrecipe(self, owner, title):
+        """add a new recipe"""
+        arecipe = dict()
+        if title:
+            counter = 1
+            for i in self.recipes:
+                counter += 1
+                if i['id'] == counter:
+                    counter += 1
+            arecipe['title'] = title
+            arecipe['id'] = counter
+            arecipe['username'] = owner
+            self.recipes.append(arecipe)
+            # return true
+            return 1
+        else:
+            # return false
+            return 0
+
+
+    def mylists(self):
+        """returns available recipes"""
+        return self.recipes
+
+"""Recipe componets"""
+class Procedures(object):
+
+    def __init__(self):
+        self.procedures = []
+
+    def addprocedure(self, id, owner, procedure):
+        aprocedure = dict()
+        if procedure:
+            aprocedure['username'] = owner
+            aprocedure['id'] = id
+            aprocedure['procedure'] = procedure
+            self.procedures.append(aprocedure)
+            return True
+        else:
+            return False
+    def allprocedures(self):
+        """return available procedures"""
+        return self.procedures

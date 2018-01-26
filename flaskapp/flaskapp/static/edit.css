@@ -1,8 +1,6 @@
-html:before {
-	background-color: black;
-}
-html {
-	background: url(futuristic.jpg);
+body {
+	/*background: url(futuristic.jpg);*/
+	background:url("bg.png") no-repeat center center fixed;
 }
 h1 {
 	color: white;
@@ -18,12 +16,23 @@ h1 {
 	height: 90px;
 }
 
+textarea, input:focus {
+    outline:none !important;
+}
+
+::-webkit-input-placeholder{
+	color: #DCDCDC !important;
+}
+
 .form-input {
 	width: 20%;
 	text-align: center;
-	padding: 10px;
-	border-color: #4f74e3;
-    font-size: 16px;
+	font-size: 16px;
+	padding: 20px;
+	border: 1.5px solid rgba(0,0,0,.15);
+    border-radius: 1em;
+    background-color:#787878;
+    color:#ffffff;
 }
 
 #button {
@@ -44,8 +53,9 @@ textarea {
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
+    border: 1.5px solid rgba(0,0,0,.15);
+    border-radius: 1em;
+    background-color:#787878;
     text-align: left;
+    color: white;
 }

@@ -1,8 +1,8 @@
 """import from libraries"""
 # import the standard unittest
 import unittest
-# import account class from models.py
-from flaskapp.models import Account
+# import account & list classes from models.py
+from flaskapp.models import *
 
 class TestRecipeSignupAndLogin(unittest.TestCase):
     """test for successful and unsuccessful signup and login"""
@@ -15,20 +15,20 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
     #"""
     def test_signup_success(self):
         """returns True if signup was successful"""
-        result = self.acc.adduser("name", "email", "password", "password")
+        result = self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
         self.assertEqual(True, result)
     def test_signup_failure(self):
         """returns False if a signup process was unsuccessful"""
-        result = self.acc.adduser("name", "email", "password", "password")
+        result = self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
         self.assertNotEqual(False, result)
     def test_password_mismatch(self):
         """returns pass_fail for password mismatch"""
-        result = self.acc.adduser("name", "email", "password", "mismatched")
+        result = self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Mismatchted")
         self.assertEqual("pass_fail", result)
     def test_user_existence(self):
         """returns false if a user exists"""
-        self.acc.adduser("name", "email", "password", "password")
-        result = self.acc.adduser("name", "email", "password", "password")
+        self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
+        result = self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
         self.assertEqual(False, result)
     #"""
     #
@@ -37,13 +37,13 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
     #"""
     def test_login_failure(self):
         """returns success if login is successful"""
-        self.acc.adduser("name", "email", "password", "password")
-        result = self.acc.login("name", "password")
+        self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
+        result = self.acc.login("name", "1@Strongpass")
         self.assertEqual(True, result)
     def test_login_success(self):
         """returns false if login is unsuccessful"""
-        self.acc.adduser("name", "email", "password", "password")
-        result = self.acc.login("name", "wrong_password")
+        self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
+        result = self.acc.login("name", "wrong_1@Strongpass")
         self.assertEqual(False, result)
 if __name__ == '__main__':
     unittest.main()

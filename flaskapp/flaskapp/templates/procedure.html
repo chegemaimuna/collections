@@ -25,13 +25,21 @@ add
 </nav>
 {% endblock %}
 {% block main %}
-	<h1>Add</h1>
+{{available_procedures}}
+<div>
+{% for i in available_procedures %}
+{% if i['id'] == id %}
+<p>~<a>{{i['procedure']}}</a></p>
+{% endif %}
+{% endfor %}
+</div>
+	<h1>Add Procedure</h1>
 
 	<!-- signup form -->
-	<form action="/addrecipe" method="post">
+	<form action="{{url_for('addprocedure', id=id)}}" method="post">
 		<div id="form-group">
 		<div id="form-item">
-			<input class="form-input" type="text" name="title" required class="title" placeholder="title">
+			<input class="form-input" type="text" name="procedure" required class="title" placeholder="procedure">
 		</div>
 		<div>
 			<button type="submit" id="button">Submit</button>
