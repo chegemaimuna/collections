@@ -8,6 +8,8 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
     """test for successful and unsuccessful signup and login"""
     def setUp(self):
         self.acc = Account()
+        self.rec = Lists()
+        self.pro = Procedures()
     #"""
     #
     #signup tests
@@ -45,6 +47,33 @@ class TestRecipeSignupAndLogin(unittest.TestCase):
         self.acc.adduser("name", "username@domain.com", "1@Strongpass", "1@Strongpass")
         result = self.acc.login("name", "wrong_1@Strongpass")
         self.assertEqual(False, result)
+    #"""
+    #
+    #addrecipe test
+    #
+    #"""
+    def test_addrecipe_success(self):
+    	"""returns true if a recipe was added else false"""
+    	result = self.rec.addrecipe("username", "title")
+    	self.assertEqual(True, result)
+    def test_addrecipe_failure(self):
+    	"""returns False if a recipe adding failed"""
+    	result = self.rec.addrecipe("username","title")
+    	self.assertFalse(False, result)
+    #"""
+    #
+    #addprocedure test
+    #
+    #"""
+    def test_addprocedure_success(self):
+    	"""test for success on adding a procedure"""
+    	result = self.pro.addprocedure("1", "username", "a procedure")
+    	self.assertEqual(True, result)
+    def test_addprocudur_failure(self):
+    	"""test for failure on adding a procedure"""
+    	result = self.pro.addprocedure("1", "username", "a procedure")
+    	self.assertFalse(False, result)
+    
 if __name__ == '__main__':
     unittest.main()
     
